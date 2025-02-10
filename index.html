@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anticorruption Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Anticorruption Portal</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#report">Report Corruption</a></li>
+                <li><a href="#rti">File RTI</a></li>
+                <li><a href="#track">Track Case</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>Stand Against Corruption</h1>
+            <p>Together we can make a difference. Report corruption and help build a transparent society.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToReport()">Report Corruption</button>
+                <button class="btn-secondary" onclick="document.querySelector('#rti').scrollIntoView({behavior: 'smooth'})">File RTI</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <img src="images/report-icon.svg" alt="Report" class="feature-icon">
+                        <h3>Report Corruption</h3>
+                        <p>Submit detailed reports about corruption incidents with evidence</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="images/rti-icon.svg" alt="RTI" class="feature-icon">
+                        <h3>File RTI</h3>
+                        <p>Request information from public authorities through RTI</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="images/track-icon.svg" alt="Track" class="feature-icon">
+                        <h3>Track Status</h3>
+                        <p>Monitor the progress of your reports and applications</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="report" class="report-section">
+            <div class="container">
+                <h2>Report Corruption</h2>
+                <form id="reportForm" class="report-form">
+                    <div class="form-group">
+                        <label for="incidentType">Type of Corruption</label>
+                        <select id="incidentType" required>
+                            <option value="">Select type</option>
+                            <option value="bribery">Bribery</option>
+                            <option value="fraud">Fraud</option>
+                            <option value="embezzlement">Embezzlement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" required placeholder="Enter location">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" required placeholder="Describe the incident"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="evidence">Evidence (Optional)</label>
+                        <input type="file" id="evidence" multiple>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Report</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="rti" class="rti-section">
+            <div class="container">
+                <h2>File RTI Application</h2>
+                <div class="rti-info">
+                    <p>The Right to Information Act empowers you to request information from public authorities.</p>
+                    <div class="rti-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <p>Fill the RTI application form</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <p>Pay the nominal fee</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <p>Track your application</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="rtiForm" class="rti-form">
+                    <div class="form-group">
+                        <label for="authority">Public Authority</label>
+                        <select id="authority" required>
+                            <option value="">Select authority</option>
+                            <option value="central">Central Government</option>
+                            <option value="state">State Government</option>
+                            <option value="local">Local Bodies</option>
+                            <option value="other">Other Public Authority</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" id="department" required placeholder="Enter department name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rtiSubject">Subject of Information</label>
+                        <input type="text" id="rtiSubject" required placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="rtiDetails">Information Details</label>
+                        <textarea id="rtiDetails" required placeholder="Describe the information you are seeking"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rtiPeriod">Time Period of Information</label>
+                        <div class="date-range">
+                            <input type="date" id="rtiFrom" required>
+                            <span>to</span>
+                            <input type="date" id="rtiTo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantDetails">Personal Details</label>
+                        <input type="text" id="applicantName" required placeholder="Full Name">
+                        <input type="text" id="applicantAddress" required placeholder="Complete Postal Address">
+                        <input type="tel" id="applicantPhone" required placeholder="Phone Number">
+                        <input type="email" id="applicantEmail" required placeholder="Email Address">
+                    </div>
+                    <div class="form-group payment-section">
+                        <h3>Payment Details</h3>
+                        <p>RTI Application Fee: ₹10 (General) / ₹0 (BPL Category)</p>
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" name="payment" value="upi" checked>
+                                UPI Payment
+                            </label>
+                            <label>
+                                <input type="radio" name="payment" value="bank">
+                                Bank Transfer
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit RTI Application</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="track" class="track-section">
+            <div class="container">
+                <h2>Track Your Case</h2>
+                <div class="track-form">
+                    <input type="text" id="caseId" placeholder="Enter Case ID">
+                    <button onclick="trackCase()" class="btn-secondary">Track</button>
+                </div>
+                <div id="caseStatus" class="case-status"></div>
+            </div>
+        </section>
+
+        <section id="resources" class="resources-section">
+            <div class="container">
+                <h2>Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Laws & Regulations</h3>
+                        <p>Learn about anti-corruption laws and your rights</p>
+                        <a href="#" class="btn-text">Learn More</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>FAQs</h3>
+                        <p>Common questions about reporting corruption</p>
+                        <a href="#" class="btn-text">View FAQs</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Contact</h3>
+                        <p>Get in touch with our support team</p>
+                        <a href="#" class="btn-text">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anticorruption Portal. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
